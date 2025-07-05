@@ -1,6 +1,6 @@
-# Manuale di Python – 6 Livelli per la Padronanza del Linguaggio
+# Impara Python - 6 livelli per studiare le basi
 
-Questo progetto raccoglie un manuale strutturato per imparare Python in modo progressivo e completo, suddiviso in 6 livelli. È pensato per chi vuole consolidare le proprie competenze partendo dalle basi fino a uno stile professionale, idiomatico e testabile.
+Questo progetto contiene un manuale strutturato per imparare Python in modo progressivo e completo, suddiviso in 6 livelli. È pensato per chi vuole consolidare le proprie competenze partendo dalle basi fino a uno stile professionale, idiomatico e testabile.
 
 ---
 
