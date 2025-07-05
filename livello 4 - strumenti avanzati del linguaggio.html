@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Python - Livello 4: Strumenti avanzati del linguaggio</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.6;
+      background-color: #fefefe;
+      color: #222;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 12px;
+      overflow-x: auto;
+      border-left: 4px solid #ccc;
+    }
+    code {
+      font-family: monospace;
+    }
+    h1, h2 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 4px;
+    }
+    .exercise {
+      background-color: #f0f8ff;
+      border-left: 4px solid #3b82f6;
+      padding: 12px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Livello 4 – Strumenti avanzati del linguaggio</h1>
+  <p>In questo livello affrontiamo alcune funzionalità avanzate che rendono Python moderno, potente e pronto per progetti reali. Non sono indispensabili per scrivere codice semplice, ma sono fondamentali per scrivere codice professionale.</p>
+
+  <h2>1. Tipizzazione statica (Type Hints)</h2>
+  <pre><code>def greet(name: str) -> str:
+    return f"Hello, {name}"
+
+def add(a: int, b: int) -> int:
+    return a + b</code></pre>
+
+  <p>Puoi usare <code>mypy</code> per controllare i tipi staticamente.</p>
+
+  <div class="exercise">
+    <h3>Esercizio</h3>
+    <ul>
+      <li>Scrivi una funzione con annotazioni di tipo e verifica con mypy che sia corretta.</li>
+    </ul>
+  </div>
+
+  <h2>2. Pattern Matching (da Python 3.10)</h2>
+  <pre><code>def handle_status(code):
+    match code:
+        case 200:
+            return "OK"
+        case 404:
+            return "Not Found"
+        case _:
+            return "Unknown"
+
+print(handle_status(404))</code></pre>
+
+  <h2>3. Dataclass</h2>
+  <p>Alternativa semplice per definire classi leggere e immutabili.</p>
+
+  <pre><code>from dataclasses import dataclass
+
+@dataclass
+class Point:
+    x: int
+    y: int
+
+p = Point(1, 2)
+print(p)</code></pre>
+
+  <h2>4. Il modulo collections</h2>
+  <pre><code>from collections import namedtuple, defaultdict
+
+Point = namedtuple("Point", ["x", "y"])
+p = Point(1, 2)
+
+words = defaultdict(int)
+words["apple"] += 1</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizi</h3>
+    <ul>
+      <li>Usa <code>namedtuple</code> per rappresentare un libro.</li>
+      <li>Usa <code>defaultdict</code> per contare le occorrenze delle lettere in una parola.</li>
+    </ul>
+  </div>
+
+  <h2>5. Concorrenza: threading, multiprocessing, asyncio</h2>
+  <pre><code>import threading
+
+def say_hello():
+    print("Hello")
+
+thread = threading.Thread(target=say_hello)
+thread.start()
+thread.join()</code></pre>
+
+  <pre><code>import asyncio
+
+async def main():
+    print("Start")
+    await asyncio.sleep(1)
+    print("End")
+
+asyncio.run(main())</code></pre>
+
+  <h2>6. Logging e debugging</h2>
+  <pre><code>import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.info("Program started")</code></pre>
+
+  <pre><code>import pdb
+
+x = 5
+pdb.set_trace()
+y = x + 2
+print(y)</code></pre>
+
+  <h2>7. Ambiente virtuale e pacchetti</h2>
+  <p>Usa <code>venv</code> per creare ambienti isolati:</p>
+
+  <pre><code>python -m venv myenv
+source myenv/bin/activate  # su Linux/macOS
+myenv\Scripts\activate     # su Windows</code></pre>
+
+  <p>Installa pacchetti con pip:</p>
+  <pre><code>pip install requests</code></pre>
+
+  <p>Esporta dipendenze:</p>
+  <pre><code>pip freeze > requirements.txt</code></pre>
+
+  <h2>Verifica di fine livello</h2>
+  <ul>
+    <li>So usare le annotazioni di tipo.</li>
+    <li>So cos'è un dataclass e un namedtuple.</li>
+    <li>So usare moduli come <code>collections</code>, <code>logging</code>, <code>threading</code>, <code>asyncio</code>.</li>
+    <li>So creare e usare ambienti virtuali con <code>venv</code>.</li>
+  </ul>
+
+  <h2>Progetto pratico</h2>
+  <ul>
+    <li>Definisci una <code>dataclass</code> per un oggetto <code>Task</code>.</li>
+    <li>Scrivi una funzione asincrona che simula l'esecuzione di più task.</li>
+    <li>Usa <code>logging</code> per stampare lo stato di ogni task.</li>
+  </ul>
+
+</body>
+</html>
