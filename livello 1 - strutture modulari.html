@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Python - Livello 1: Strutture Modulari</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.6;
+      background-color: #fefefe;
+      color: #222;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 12px;
+      overflow-x: auto;
+      border-left: 4px solid #ccc;
+    }
+    code {
+      font-family: monospace;
+    }
+    h1, h2 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 4px;
+    }
+    .exercise {
+      background-color: #f0f8ff;
+      border-left: 4px solid #3b82f6;
+      padding: 12px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Livello 1 – Strutture Modulari</h1>
+  <p>In questo livello approfondiamo l'organizzazione del codice Python tramite funzioni, gestione degli errori e importazione di moduli. Imparerai a scrivere codice più ordinato, riutilizzabile e robusto.</p>
+
+  <h2>1. Funzioni</h2>
+  <p>Le funzioni servono a racchiudere blocchi di codice che eseguono operazioni specifiche. Si definiscono con <code>def</code> e si richiamano con il loro nome.</p>
+
+  <pre><code>def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Alice")</code></pre>
+
+  <h3>Parametri e ritorni</h3>
+  <pre><code>def add(a, b):
+    return a + b
+
+result = add(3, 5)
+print(result)</code></pre>
+
+  <h3>Argomenti di default</h3>
+  <pre><code>def greet(name="Guest"):
+    print(f"Welcome, {name}!")
+
+greet()
+greet("Bob")</code></pre>
+
+  <h3>*args e **kwargs</h3>
+  <pre><code>def print_args(*args):
+    for arg in args:
+        print(arg)
+
+print_args("a", "b", "c")
+
+def print_kwargs(**kwargs):
+    for key, value in kwargs.items():
+        print(key, value)
+
+print_kwargs(name="Alice", age=25)</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizi</h3>
+    <ul>
+      <li>Scrivi una funzione che calcola l'area di un rettangolo (base * altezza).</li>
+      <li>Scrivi una funzione che accetta un numero qualsiasi di argomenti e ne stampa la somma.</li>
+    </ul>
+  </div>
+
+  <h2>2. Scope delle variabili</h2>
+  <p>Una variabile dichiarata dentro una funzione ha <strong>scope locale</strong>. Le variabili dichiarate fuori da tutte le funzioni hanno <strong>scope globale</strong>.</p>
+
+  <pre><code>x = 10
+
+def example():
+    x = 5  # locale
+    print(x)
+
+example()
+print(x)  # globale</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizio</h3>
+    <ul>
+      <li>Prova a modificare una variabile globale da dentro una funzione usando la parola chiave <code>global</code>.</li>
+    </ul>
+  </div>
+
+  <h2>3. Gestione degli errori</h2>
+  <p>Python permette di gestire eccezioni usando <code>try</code> / <code>except</code>. È utile per evitare che il programma si blocchi in caso di errore.</p>
+
+  <pre><code>try:
+    x = int(input("Enter a number: "))
+    print(10 / x)
+except ValueError:
+    print("Invalid input: not a number")
+except ZeroDivisionError:
+    print("You can't divide by zero")</code></pre>
+
+  <h3>Uso di finally</h3>
+  <pre><code>try:
+    file = open("data.txt")
+    # ...
+except FileNotFoundError:
+    print("File not found")
+finally:
+    print("Execution finished")</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizi</h3>
+    <ul>
+      <li>Scrivi un programma che chiede un numero all'utente e stampa il suo inverso, gestendo eccezioni.</li>
+      <li>Simula un errore con una variabile non definita e intercettalo con <code>except NameError</code>.</li>
+    </ul>
+  </div>
+
+  <h2>4. Importazione di moduli</h2>
+  <p>Un modulo è un file Python che contiene definizioni, funzioni o variabili. Puoi importare moduli interni o librerie esterne.</p>
+
+  <pre><code>import math
+print(math.sqrt(25))</code></pre>
+
+  <pre><code>from random import randint
+print(randint(1, 10))</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizi</h3>
+    <ul>
+      <li>Importa il modulo <code>datetime</code> e stampa la data odierna.</li>
+      <li>Usa <code>from ... import ...</code> per importare solo <code>choice</code> dal modulo <code>random</code> e usalo su una lista di nomi.</li>
+    </ul>
+  </div>
+
+  <h2>Verifica di fine livello</h2>
+  <ul>
+    <li>So scrivere e richiamare funzioni, anche con parametri variabili.</li>
+    <li>So distinguere tra scope locale e globale.</li>
+    <li>So gestire errori ed eccezioni comuni con <code>try</code> / <code>except</code>.</li>
+    <li>So importare moduli della libreria standard e usare le loro funzioni.</li>
+  </ul>
+
+  <h2>Progetto pratico</h2>
+  <p>Scrivi un piccolo programma che:</p>
+  <ol>
+    <li>Chiede all'utente due numeri.</li>
+    <li>Li somma usando una funzione.</li>
+    <li>Gestisce gli errori di input o divisione per zero.</li>
+    <li>Stampa la data corrente.</li>
+  </ol>
+
+</body>
+</html>
