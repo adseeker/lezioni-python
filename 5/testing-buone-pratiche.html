@@ -107,6 +107,37 @@ print(x)</code></pre>
     <li><strong>D</strong> - Dependency Inversion Principle</li>
   </ul>
 
+  <h3>Esempio: Single Responsibility Principle</h3>
+  <pre><code># Scorretto: troppo responsabilità in una classe
+class User:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+    
+    def save_to_database(self):
+        # logica database
+        pass
+    
+    def send_email(self):
+        # logica email
+        pass
+
+# Corretto: ogni classe ha una responsabilità
+class User:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+
+class UserRepository:
+    def save(self, user):
+        # logica database
+        pass
+
+class EmailService:
+    def send(self, user):
+        # logica email
+        pass</code></pre>
+
   <div class="exercise">
     <h3>Esercizi</h3>
     <ul>

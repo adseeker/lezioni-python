@@ -93,10 +93,22 @@ def example():
 example()
 print(x)  # globale</code></pre>
 
+  <h3>Modificare variabili globali</h3>
+  <pre><code>counter = 0
+
+def increment():
+    global counter
+    counter += 1
+    print(f"Counter is now: {counter}")
+
+increment()
+increment()
+print(f"Final counter: {counter}")</code></pre>
+
   <div class="exercise">
     <h3>Esercizio</h3>
     <ul>
-      <li>Prova a modificare una variabile globale da dentro una funzione usando la parola chiave <code>global</code>.</li>
+      <li>Crea una variabile globale <code>score</code> e scrivi due funzioni: una che la incrementa di 10 e una che la decrementa di 5.</li>
     </ul>
   </div>
 

@@ -35,7 +35,7 @@ Ogni livello è organizzato in una pagina HTML, leggibile in browser, con:
 
 ## Requisiti
 
-- Python 3.10 o superiore
+- **Python 3.6 o superiore** (il manuale non è compatibile con Python 2)
 - Un browser per leggere il manuale HTML
 - Editor di testo (VSCode o simili) per fare esercizi
 - Facoltativo: `pytest`, `mypy`, `flake8`, `black`
