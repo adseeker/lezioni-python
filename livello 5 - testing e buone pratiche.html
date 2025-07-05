@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Python - Livello 5: Testing e Buone Pratiche</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.6;
+      background-color: #fefefe;
+      color: #222;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 12px;
+      overflow-x: auto;
+      border-left: 4px solid #ccc;
+    }
+    code {
+      font-family: monospace;
+    }
+    h1, h2 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 4px;
+    }
+    .exercise {
+      background-color: #f0f8ff;
+      border-left: 4px solid #3b82f6;
+      padding: 12px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Livello 5 – Testing e Buone Pratiche</h1>
+  <p>In questo livello impari a scrivere codice testabile, leggibile e manutenibile. Ti avvicini a uno stile professionale seguendo le convenzioni Python e introducendo il concetto di qualità del software.</p>
+
+  <h2>1. Testing con unittest</h2>
+  <pre><code>import unittest
+
+def add(a, b):
+    return a + b
+
+class TestAdd(unittest.TestCase):
+    def test_add_positive(self):
+        self.assertEqual(add(2, 3), 5)
+
+if __name__ == '__main__':
+    unittest.main()</code></pre>
+
+  <h2>2. Testing con pytest</h2>
+  <pre><code># test_example.py
+from example import add
+
+def test_add():
+    assert add(2, 3) == 5</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizio</h3>
+    <ul>
+      <li>Scrivi test per una funzione che calcola l'area di un triangolo.</li>
+    </ul>
+  </div>
+
+  <h2>3. Mocking e test parametrizzati</h2>
+  <pre><code>from unittest.mock import Mock
+
+mock = Mock()
+mock.method.return_value = 10
+print(mock.method())</code></pre>
+
+  <h2>4. Convenzioni di stile: PEP8</h2>
+  <p>Python ha una guida ufficiale sullo stile del codice chiamata PEP8. Puoi usare <code>flake8</code> o <code>black</code> per verificare o formattare il codice.</p>
+
+  <pre><code># Esempio scorretto
+x=2
+print( x )
+
+# Corretto
+x = 2
+print(x)</code></pre>
+
+  <h2>5. Documentazione</h2>
+  <pre><code>def add(a, b):
+    """Restituisce la somma di due numeri."""
+    return a + b</code></pre>
+
+  <h2>6. Struttura di progetto Python</h2>
+  <p>Una struttura semplice e comune è:</p>
+  <pre><code>my_project/
+├── main.py
+├── utils.py
+├── tests/
+│   └── test_main.py
+├── requirements.txt
+└── README.md</code></pre>
+
+  <h2>7. Principi SOLID (introduzione)</h2>
+  <ul>
+    <li><strong>S</strong> - Single Responsibility Principle</li>
+    <li><strong>O</strong> - Open/Closed Principle</li>
+    <li><strong>L</strong> - Liskov Substitution Principle</li>
+    <li><strong>I</strong> - Interface Segregation Principle</li>
+    <li><strong>D</strong> - Dependency Inversion Principle</li>
+  </ul>
+
+  <div class="exercise">
+    <h3>Esercizi</h3>
+    <ul>
+      <li>Rendi una funzione documentata, testata e formattata secondo PEP8.</li>
+      <li>Organizza un piccolo progetto in più file con una cartella <code>tests</code>.</li>
+    </ul>
+  </div>
+
+  <h2>Verifica di fine livello</h2>
+  <ul>
+    <li>So scrivere test unitari con <code>unittest</code> e <code>pytest</code>.</li>
+    <li>Conosco l'uso dei mock.</li>
+    <li>Seguo PEP8 e scrivo docstring.</li>
+    <li>So organizzare un progetto in modo chiaro.</li>
+  </ul>
+
+  <h2>Progetto pratico</h2>
+  <ul>
+    <li>Progetta un modulo Python che gestisce una rubrica (aggiungi, cerca, elimina contatti).</li>
+    <li>Scrivi test per ogni funzione.</li>
+    <li>Documenta tutto con docstring e crea un file README.md.</li>
+  </ul>
+
+</body>
+</html>
