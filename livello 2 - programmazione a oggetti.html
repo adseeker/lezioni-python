@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Python - Livello 2: Programmazione a Oggetti</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.6;
+      background-color: #fefefe;
+      color: #222;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 12px;
+      overflow-x: auto;
+      border-left: 4px solid #ccc;
+    }
+    code {
+      font-family: monospace;
+    }
+    h1, h2 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 4px;
+    }
+    .exercise {
+      background-color: #f0f8ff;
+      border-left: 4px solid #3b82f6;
+      padding: 12px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Livello 2 – Programmazione a Oggetti</h1>
+  <p>In questo livello impari a usare le classi e gli oggetti in Python. La programmazione orientata agli oggetti (OOP) ti permette di strutturare il codice in modo più modulare, riutilizzabile e adatto a progetti complessi.</p>
+
+  <h2>1. Classi e oggetti</h2>
+  <p>Una classe è un modello (template). Un oggetto è un'istanza concreta di quella classe.</p>
+
+  <pre><code>class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        print(f"Hi, I'm {self.name} and I'm {self.age} years old.")
+
+person1 = Person("Alice", 30)
+person1.greet()</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizi</h3>
+    <ul>
+      <li>Crea una classe <code>Car</code> con attributi <code>brand</code> e <code>year</code>. Aggiungi un metodo che stampa una descrizione.</li>
+    </ul>
+  </div>
+
+  <h2>2. Incapsulamento</h2>
+  <p>In Python, gli attributi privati si definiscono con un underscore. Non sono davvero "privati", ma è una convenzione per indicare che non vanno modificati direttamente.</p>
+
+  <pre><code>class BankAccount:
+    def __init__(self, balance):
+        self._balance = balance
+
+    def deposit(self, amount):
+        self._balance += amount
+
+    def get_balance(self):
+        return self._balance</code></pre>
+
+  <h2>3. Ereditarietà</h2>
+  <p>Una classe può ereditare da un'altra per riutilizzarne attributi e metodi.</p>
+
+  <pre><code>class Animal:
+    def speak(self):
+        print("Some sound")
+
+class Dog(Animal):
+    def speak(self):
+        print("Woof")
+
+d = Dog()
+d.speak()</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizio</h3>
+    <ul>
+      <li>Crea una classe <code>Employee</code> e una classe <code>Manager</code> che eredita da <code>Employee</code>.</li>
+    </ul>
+  </div>
+
+  <h2>4. Polimorfismo</h2>
+  <p>Con il polimorfismo, puoi scrivere codice che funziona con oggetti di classi diverse ma con metodi comuni.</p>
+
+  <pre><code>class Cat:
+    def speak(self):
+        print("Meow")
+
+animals = [Dog(), Cat()]
+for animal in animals:
+    animal.speak()</code></pre>
+
+  <h2>5. Metodi speciali</h2>
+  <p>I metodi speciali (o d'uso interno) iniziano e finiscono con doppio underscore.</p>
+
+  <pre><code>class Book:
+    def __init__(self, title):
+        self.title = title
+
+    def __str__(self):
+        return f"Book: {self.title}"
+
+b = Book("1984")
+print(b)</code></pre>
+
+  <h2>6. Decoratori di classe</h2>
+  <p>Python supporta <code>@staticmethod</code>, <code>@classmethod</code> e <code>@property</code> per definire comportamenti particolari.</p>
+
+  <pre><code>class Math:
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+print(Math.add(3, 4))</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizi</h3>
+    <ul>
+      <li>Crea una classe <code>Circle</code> con un attributo <code>radius</code> e un metodo <code>@property</code> per calcolare l'area.</li>
+    </ul>
+  </div>
+
+  <h2>Verifica di fine livello</h2>
+  <ul>
+    <li>So creare e istanziare classi.</li>
+    <li>So usare metodi e attributi, anche con self.</li>
+    <li>Conosco ereditarietà, incapsulamento e polimorfismo.</li>
+    <li>So usare metodi speciali e decoratori di classe.</li>
+  </ul>
+
+  <h2>Progetto pratico</h2>
+  <p>Scrivi un programma con:</p>
+  <ul>
+    <li>Una classe <code>User</code> con nome ed età.</li>
+    <li>Un metodo che descrive l'utente.</li>
+    <li>Una sottoclasse <code>Admin</code> con un metodo aggiuntivo <code>ban_user()</code>.</li>
+  </ul>
+
+</body>
+</html>
