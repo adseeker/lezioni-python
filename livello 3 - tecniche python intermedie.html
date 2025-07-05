@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Python - Livello 3: Tecniche Python intermedie e idiomatiche</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.6;
+      background-color: #fefefe;
+      color: #222;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 12px;
+      overflow-x: auto;
+      border-left: 4px solid #ccc;
+    }
+    code {
+      font-family: monospace;
+    }
+    h1, h2 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 4px;
+    }
+    .exercise {
+      background-color: #f0f8ff;
+      border-left: 4px solid #3b82f6;
+      padding: 12px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Livello 3 – Tecniche Python intermedie e idiomatiche</h1>
+  <p>In questo livello impari a scrivere codice più espressivo, idiomatico ed efficiente in Python, usando funzioni avanzate, generatori, gestione dei file e strumenti della libreria standard che si usano comunemente in progetti reali.</p>
+
+  <h2>1. Funzioni avanzate</h2>
+
+  <h3>Funzioni come oggetti di prima classe</h3>
+  <pre><code>def greet():
+    print("Hello")
+
+a = greet
+
+a()</code></pre>
+
+  <h3>Lambda, map, filter, reduce</h3>
+  <pre><code>nums = [1, 2, 3, 4]
+squared = list(map(lambda x: x**2, nums))
+print(squared)
+
+filtered = list(filter(lambda x: x % 2 == 0, nums))
+print(filtered)</code></pre>
+
+  <h3>Decoratori</h3>
+  <pre><code>def decorator(func):
+    def wrapper():
+        print("Before")
+        func()
+        print("After")
+    return wrapper
+
+@decorator
+def say_hi():
+    print("Hi")
+
+say_hi()</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizio</h3>
+    <ul>
+      <li>Scrivi un decoratore che misura il tempo di esecuzione di una funzione.</li>
+    </ul>
+  </div>
+
+  <h2>2. Generatori e iteratori</h2>
+
+  <pre><code>def count_up_to(n):
+    i = 1
+    while i <= n:
+        yield i
+        i += 1
+
+for num in count_up_to(5):
+    print(num)</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizio</h3>
+    <ul>
+      <li>Scrivi un generatore che restituisce solo numeri pari da 0 a un massimo dato.</li>
+    </ul>
+  </div>
+
+  <h2>3. Gestione file</h2>
+
+  <pre><code>with open("file.txt", "w") as f:
+    f.write("Hello\nWorld")</code></pre>
+
+  <pre><code>with open("file.txt") as f:
+    for line in f:
+        print(line.strip())</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizio</h3>
+    <ul>
+      <li>Scrivi un programma che legge un file riga per riga e conta quante righe ci sono.</li>
+    </ul>
+  </div>
+
+  <h2>4. Regular Expressions (regex)</h2>
+
+  <pre><code>import re
+
+text = "The number is 42"
+match = re.search(r"\d+", text)
+if match:
+    print("Found:", match.group())</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizio</h3>
+    <ul>
+      <li>Scrivi una regex che trova tutte le email in un testo.</li>
+    </ul>
+  </div>
+
+  <h2>5. Comprensioni avanzate</h2>
+
+  <pre><code>matrix = [[1, 2], [3, 4]]
+flattened = [num for row in matrix for num in row]
+print(flattened)</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizio</h3>
+    <ul>
+      <li>Scrivi una list comprehension che crea una lista di quadrati di numeri dispari da 1 a 10.</li>
+    </ul>
+  </div>
+
+  <h2>6. Modularizzazione</h2>
+  <p>Dividere il codice in più file e usare <code>if __name__ == "__main__"</code> permette di creare script riutilizzabili.</p>
+
+  <pre><code># main.py
+import utils
+
+if __name__ == "__main__":
+    utils.say_hello()</code></pre>
+
+  <div class="exercise">
+    <h3>Esercizio</h3>
+    <ul>
+      <li>Crea due file Python: uno con una funzione, l'altro che la importa e la esegue.</li>
+    </ul>
+  </div>
+
+  <h2>Verifica di fine livello</h2>
+  <ul>
+    <li>So usare lambda, map, filter e reduce.</li>
+    <li>So scrivere e usare decoratori.</li>
+    <li>So leggere e scrivere file in modo sicuro.</li>
+    <li>Conosco le basi delle espressioni regolari.</li>
+    <li>So creare generatori e usare list comprehension avanzate.</li>
+  </ul>
+
+  <h2>Progetto pratico</h2>
+  <ul>
+    <li>Scrivi un generatore che produce numeri di Fibonacci.</li>
+    <li>Salva i primi 20 in un file.</li>
+    <li>Scrivi una funzione decorata che ne calcola la media e ne stampa il risultato.</li>
+  </ul>
+
+</body>
+</html>
